@@ -31,7 +31,7 @@ for column in x.columns:
     print("====================================")
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=101)
-#'''
+
 pk = df[df.country =='Pakistan']
 ax = plt.subplots(figsize=(15, 10))
 sns.barplot(data=pk, x="activity", y="loan_amount").set_title('Pakistan')
@@ -51,4 +51,3 @@ sns.barplot(data=ph, x="activity", y="loan_amount").set_title('Philippines')
 ca = df[df.country =='Cambodia']
 ax = plt.subplots(figsize=(15, 10))
 sns.barplot(data=ca, x="activity", y="loan_amount").set_title('Cambodia')
-#
