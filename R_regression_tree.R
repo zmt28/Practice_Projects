@@ -48,5 +48,18 @@ MSE2full <- mean((test$fulltree - test$Collection)^2)
 test$pruned <- predict(prunedtree, test, type = "vector")
 MSE2pruned <- mean((test$pruned - test$Collection)^2)
 
+# Bagging
+install.packages('randomForest')
+library(randomForest)
+set.seed(0)
 
+bagging =randomForest(formula = Collection~., data = train, mtry=17)
+test$bagging <- predict(bagging, test)
+MSE2bagging <- mean((test$bagging - test$Collection)^2)
 
+# Random Forest
+ randomfor <- randomForest(Collection~., data = train,ntree=500)
+ 
+ # Predict Output
+ test$random <- predict(randomfor, test)
+ MSE2random <- mean((test$random - test$Collection) ^2)
